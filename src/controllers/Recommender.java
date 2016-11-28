@@ -17,4 +17,8 @@ public interface Recommender {
 	public double getUserRecommendations(double userID);
 	
 	public String getTopTenMovie();
+	
+	public void load();
+	
+	public void write();
 }
