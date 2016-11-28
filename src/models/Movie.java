@@ -9,7 +9,7 @@ public class Movie {
 	public String year;
 	public String url;
 
-	private Long id;
+	public Long id;
 	
 	public Movie(String title, String year, String url){
 		this.id = counter ++;
