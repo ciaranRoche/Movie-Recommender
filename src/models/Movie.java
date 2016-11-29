@@ -1,4 +1,5 @@
 package models;
+import static com.google.common.base.MoreObjects.toStringHelper;
 
 import java.util.Objects;
 
@@ -6,12 +7,12 @@ public class Movie {
 	static Long	counter = (long) 01;
 	
 	public String title;
-	public String year;
+	public int year;
 	public String url;
 
 	public Long id;
 	
-	public Movie(String title, String year, String url){
+	public Movie(String title, int year, String url){
 		this.id = counter ++;
 		this.title = title;
 		this.year = year;
@@ -20,7 +21,11 @@ public class Movie {
 	
 	@Override
 	public String toString(){
-		return "Title: " +title+ " Year: " +year+ " Url: " + url;
+		return toStringHelper(this).addValue(id)
+				                   .addValue(title)
+				                   .addValue(year)
+				                   .addValue(url)
+				                   .toString();
 	}
 	
 	@Override

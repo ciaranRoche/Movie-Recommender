@@ -1,5 +1,6 @@
 package models;
 
+import static com.google.common.base.MoreObjects.toStringHelper;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -12,12 +13,17 @@ public class User {
 	public String firstName;
 	public String lastName;
 	public String gender;
-	public String age;
+	public int age;
 	public String occupation;
+	
 	
 	public List<Rating> ratings = new ArrayList<>();
 	
-	public User(String firstName, String lastName, String gender, String age, String occupation){
+	public User(){
+		
+	}
+	
+	public User(String firstName, String lastName, String gender, int age, String occupation){
 		this.id = counter++;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -27,7 +33,12 @@ public class User {
 	}
 	
 	public String toString(){
-		return "Name: " + firstName + " " + lastName +"\nGender: " +gender+ "\nAge: " +age+ "\nOccupating: "+occupation;
+		return toStringHelper(this).addValue(id)
+								   .addValue(firstName)
+								   .addValue(lastName)
+								   .addValue(age)
+								   .addValue(occupation)
+								   .toString();
 	}
 	
 	@Override
