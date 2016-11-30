@@ -1,12 +1,13 @@
 package controllers;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.sun.org.apache.xml.internal.security.encryption.Serializer;
-
 import models.User;
 import models.Movie;
+
+import utils.Serializer;
 
 public class MovieRecommenderAPI implements Recommender{
 
@@ -18,65 +19,77 @@ public class MovieRecommenderAPI implements Recommender{
 	public MovieRecommenderAPI(){
 		
 	}
+	
+	public MovieRecommenderAPI(Serializer serializer){
+		this.serializer = serializer;
+	}
 
-	@Override
 	public User addUser(String firstName, String lastName, String gender, int age, String occupation) {
 		User user = new User(firstName, lastName, gender, age, occupation);
 		userIndex.put(user.id, user);
 		return user;
 	}
 
-	@Override
 	public void removeUser(long userID) {
 		userIndex.clear();
 	}
+	
+	
+	public User getUser(Long id){
+	    return userIndex.get(id);
+	  }
+	
+	public Collection<User> getUsers(){
+		return userIndex.values();
+	}
 
-	@Override
-	public Movie addMovie(String title, int year, String url) {
+	public Movie addMovie(String title, String year, String url) {
 		Movie movie = new Movie(title, year, url);
 		movieIndex.put(movie.id, movie);
 		return movie;
 	}
 
-	@Override
+
 	public void addRating(long userID, long movieID, double rating) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public double getMovie(long movieID) {
 		return movieID;
 		// TODO Auto-generated method stub
 	}
 
-	@Override
+	
 	public double getUserRathing(long userID) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	@Override
+
 	public double getUserRecommendations(long userID) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	@Override
+
 	public String getTopTenMovie() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public void load() {
-		// TODO Auto-generated method stub
+	@SuppressWarnings("unchecked")
+	public void load() throws Exception {
+		serializer.read();
+		userIndex		= (Map<Long, User>)		serializer.pop();
 		
 	}
 
-	@Override
-	public void write() {
-		// TODO Auto-generated method stub
+	
+	public void write() throws Exception {
+		serializer.push(userIndex);
+		serializer.write();
 		
 	}
 }

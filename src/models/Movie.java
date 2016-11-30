@@ -7,12 +7,12 @@ public class Movie {
 	static Long	counter = (long) 01;
 	
 	public String title;
-	public int year;
+	public String year;
 	public String url;
 
 	public Long id;
 	
-	public Movie(String title, int year, String url){
+	public Movie(String title, String year, String url){
 		this.id = counter ++;
 		this.title = title;
 		this.year = year;

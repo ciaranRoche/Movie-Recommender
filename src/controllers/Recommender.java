@@ -9,7 +9,7 @@ public interface Recommender {
 	
 	public void removeUser(long userID);
 	
-	public Movie addMovie(String title, int year, String url);
+	public Movie addMovie(String title, String year, String url);
 	
 	public void addRating(long userID,long movieID,double rating);
 	
@@ -21,7 +21,7 @@ public interface Recommender {
 	
 	public String getTopTenMovie();
 	
-	public void load();
+	public void load() throws Exception;
 	
-	public void write();
+	public void write() throws Exception;
 }
