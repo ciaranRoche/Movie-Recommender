@@ -36,6 +36,7 @@ public class User {
 		return toStringHelper(this).addValue(id)
 								   .addValue(firstName)
 								   .addValue(lastName)
+								   .addValue(gender)
 								   .addValue(age)
 								   .addValue(occupation)
 								   .toString();
