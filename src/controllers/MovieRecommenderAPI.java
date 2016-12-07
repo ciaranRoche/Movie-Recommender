@@ -89,15 +89,17 @@ public class MovieRecommenderAPI implements Recommender{
 	@SuppressWarnings("unchecked")
 	public void load() throws Exception {
 		serializer.read();
-		userIndex		= (Map<Long, User>)		serializer.pop();
-		
+		ratingIndex		= (Map<Long, Rating>)	serializer.pop();
+		movieIndex		= (Map<Long, Movie>)	serializer.pop();
+		userIndex		= (Map<Long, User>)		serializer.pop();	
 	}
 
 	
 	public void write() throws Exception {
 		serializer.push(userIndex);
-		serializer.write();
-		
+		serializer.push(movieIndex);
+		serializer.push(ratingIndex);
+		serializer.write();	
 	}
 
 	@Override
