@@ -68,6 +68,24 @@ public class DataInput {
 	}
 	
 	public List<Rating> loadRatings (String filename) throws Exception{
-		return null;
+		File ratingsFile = new File(filename);
+		In inRatings = new In(ratingsFile);
+		
+		String delims = "[|]";
+		List<Rating> ratings = new ArrayList<Rating>();
+		while(!inRatings.isEmpty()){
+			String ratingDetails = inRatings.readLine();
+			String[] ratingTokens = ratingDetails.split(delims);
+			if(ratingTokens.length == 4){
+				long userId 	= Long.parseLong(ratingTokens[0]);
+				long movieId	= Long.parseLong(ratingTokens[1]);
+				int rating   = Integer.parseInt(ratingTokens[2]);
+				
+				ratings.add(new Rating(userId, movieId, rating));	
+			}else{
+				throw new Exception("Invalid ratings length: " + ratingTokens.length);
+			}
+		}
+		return ratings;
 	}
 }

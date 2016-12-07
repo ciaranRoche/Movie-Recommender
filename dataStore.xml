@@ -8,9 +8,9 @@
         <elementData>
           <map>
             <entry>
-              <long>1</long>
+              <long>0</long>
               <models.User>
-                <id>1</id>
+                <id>0</id>
                 <firstName>Leonard</firstName>
                 <lastName>Hernandez</lastName>
                 <gender>M</gender>
@@ -20,9 +20,9 @@
               </models.User>
             </entry>
             <entry>
-              <long>2</long>
+              <long>1</long>
               <models.User>
-                <id>2</id>
+                <id>1</id>
                 <firstName>Melody</firstName>
                 <lastName>Roberson</lastName>
                 <gender>F</gender>
@@ -32,9 +32,9 @@
               </models.User>
             </entry>
             <entry>
-              <long>3</long>
+              <long>2</long>
               <models.User>
-                <id>3</id>
+                <id>2</id>
                 <firstName>Gregory</firstName>
                 <lastName>Newton</lastName>
                 <gender>M</gender>
@@ -44,14 +44,26 @@
               </models.User>
             </entry>
             <entry>
-              <long>4</long>
+              <long>3</long>
               <models.User>
-                <id>4</id>
+                <id>3</id>
                 <firstName>Oliver</firstName>
                 <lastName>George</lastName>
                 <gender>M</gender>
                 <age>24</age>
                 <occupation>43537</occupation>
+                <ratings/>
+              </models.User>
+            </entry>
+            <entry>
+              <long>4</long>
+              <models.User>
+                <id>4</id>
+                <firstName>Jenna</firstName>
+                <lastName>Parker</lastName>
+                <gender>F</gender>
+                <age>33</age>
+                <occupation>15213</occupation>
                 <ratings/>
               </models.User>
             </entry>

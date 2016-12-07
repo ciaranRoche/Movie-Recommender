@@ -10,10 +10,12 @@ import models.Movie;
 import utils.DataInput;
 import utils.Serializer;
 
+import models.Rating;
 public class MovieRecommenderAPI implements Recommender{
 
 	public Map<Long, User> userIndex = new HashMap<>();
 	public Map<Long, Movie> movieIndex = new HashMap<>();
+	public Map<Long, Rating> ratingIndex = new HashMap<>();
 	
 	private Serializer serializer;
 	
@@ -108,6 +110,10 @@ public class MovieRecommenderAPI implements Recommender{
 		List<Movie> movies = loader.loadMovies("././data/items5.dat");
 		for (Movie movie : movies){
 			movieIndex.put(movie.id, movie);
+		}
+		List<Rating> ratings = loader.loadRatings("././data/ratings5.dat");
+		for (Rating rating : ratings){
+			ratingIndex.put(rating.id, rating);
 		}
 	}
 }

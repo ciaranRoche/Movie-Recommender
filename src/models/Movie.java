@@ -4,7 +4,7 @@ import static com.google.common.base.MoreObjects.toStringHelper;
 import java.util.Objects;
 
 public class Movie {
-	static Long	counter = (long) 01;
+	static Long	counter = 0l;
 	
 	public String title;
 	public String year;

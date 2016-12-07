@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class User {
 	
-	static Long counter= (long) 01;
+	static Long counter= 0l;
 	
 	public Long id;
 	public String firstName;
