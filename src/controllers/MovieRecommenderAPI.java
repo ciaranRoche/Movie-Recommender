@@ -49,6 +49,10 @@ public class MovieRecommenderAPI implements Recommender{
 		movieIndex.put(movie.id, movie);
 		return movie;
 	}
+	
+	public Collection<Movie> getMovies(){
+		return movieIndex.values();
+	}
 
 
 	public void addRating(long userID, long movieID, double rating) {
@@ -101,6 +105,9 @@ public class MovieRecommenderAPI implements Recommender{
 		for (User user : users){
 			userIndex.put(user.id, user);
 		}
-		
+		List<Movie> movies = loader.loadMovies("././data/items5.dat");
+		for (Movie movie : movies){
+			movieIndex.put(movie.id, movie);
+		}
 	}
 }

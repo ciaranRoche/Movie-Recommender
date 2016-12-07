@@ -8,9 +8,11 @@ import java.util.Scanner;
 import edu.princeton.cs.introcs.In;
 import models.User;
 
+import models.Movie;
+
+import models.Rating;
 public class DataInput {
 	
-	Scanner scanner;
 	
 	public static void main(String[] args){
 
@@ -42,19 +44,30 @@ public class DataInput {
 	}
 	
 
-//	public static void readInData() throws FileNotFoundException{
-//		File file = new File("././data/items5.dat");
-//		Scanner inData = new Scanner(file);
-//		
-//		String delims = "[|]";
-//		while(inData.hasNextLine()){
-//			String dataDetails = inData.nextLine();
-//			
-//			String[] dataTokens = dataDetails.split(delims);
-//			
-//			System.out.println("id: "+dataTokens[0]+"Title: " +dataTokens[1]+ " Date: "+dataTokens[2]+ " Url: "+dataTokens[3]);
-//
-//
-//		}
-//	}
+	public List<Movie> loadMovies (String filename) throws Exception{
+		File moviesFile = new File(filename);
+		In inMovies = new In(moviesFile);
+		
+		String delims = "[|]";
+		List<Movie> movies = new ArrayList<Movie>();
+		while(!inMovies.isEmpty()){
+			String movieDetails = inMovies.readLine();
+			String[] movieTokens = movieDetails.split(delims);
+			if(movieTokens.length == 23){
+				String id 			= movieTokens[0];
+				String title		= movieTokens[1];
+				String year			= movieTokens[2];
+				String url			= movieTokens[3];
+				
+				movies.add(new Movie(title, year, url));
+			}else{
+				throw new Exception("Invalid movie lenght: " + movieTokens.length);
+			}
+		}
+		return movies;
+	}
+	
+	public List<Rating> loadRatings (String filename) throws Exception{
+		return null;
+	}
 }
