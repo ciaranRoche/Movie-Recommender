@@ -13,7 +13,7 @@ public class User {
 	public String firstName;
 	public String lastName;
 	public String gender;
-	public int age;
+	public String age;
 	public String occupation;
 	
 	
@@ -23,7 +23,7 @@ public class User {
 		
 	}
 	
-	public User(String firstName, String lastName, String gender, int age, String occupation){
+	public User(String firstName, String lastName, String gender, String age, String occupation){
 		this.id = counter++;
 		this.firstName = firstName;
 		this.lastName = lastName;

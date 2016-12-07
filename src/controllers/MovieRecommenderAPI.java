@@ -2,11 +2,12 @@ package controllers;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import models.User;
 import models.Movie;
-
+import utils.DataInput;
 import utils.Serializer;
 
 public class MovieRecommenderAPI implements Recommender{
@@ -24,7 +25,7 @@ public class MovieRecommenderAPI implements Recommender{
 		this.serializer = serializer;
 	}
 
-	public User addUser(String firstName, String lastName, String gender, int age, String occupation) {
+	public User addUser(String firstName, String lastName, String gender, String age, String occupation) {
 		User user = new User(firstName, lastName, gender, age, occupation);
 		userIndex.put(user.id, user);
 		return user;
@@ -90,6 +91,16 @@ public class MovieRecommenderAPI implements Recommender{
 	public void write() throws Exception {
 		serializer.push(userIndex);
 		serializer.write();
+		
+	}
+
+	@Override
+	public void prime() throws Exception {
+		DataInput loader = new DataInput();
+		List<User> users = loader.loadUsers("././data/users5.dat");
+		for (User user : users){
+			userIndex.put(user.id, user);
+		}
 		
 	}
 }

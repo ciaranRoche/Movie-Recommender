@@ -11,11 +11,11 @@
               <long>1</long>
               <models.User>
                 <id>1</id>
-                <firstName>Joe</firstName>
-                <lastName>Bloggs</lastName>
-                <gender>male</gender>
-                <age>21</age>
-                <occupation>coder</occupation>
+                <firstName>Leonard</firstName>
+                <lastName>Hernandez</lastName>
+                <gender>M</gender>
+                <age>24</age>
+                <occupation>85711</occupation>
                 <ratings/>
               </models.User>
             </entry>
@@ -23,11 +23,47 @@
               <long>2</long>
               <models.User>
                 <id>2</id>
-                <firstName>Jane</firstName>
-                <lastName>Bloggs</lastName>
-                <gender>female</gender>
-                <age>22</age>
-                <occupation>hacker</occupation>
+                <firstName>Melody</firstName>
+                <lastName>Roberson</lastName>
+                <gender>F</gender>
+                <age>53</age>
+                <occupation>94043</occupation>
+                <ratings/>
+              </models.User>
+            </entry>
+            <entry>
+              <long>3</long>
+              <models.User>
+                <id>3</id>
+                <firstName>Gregory</firstName>
+                <lastName>Newton</lastName>
+                <gender>M</gender>
+                <age>23</age>
+                <occupation>32067</occupation>
+                <ratings/>
+              </models.User>
+            </entry>
+            <entry>
+              <long>4</long>
+              <models.User>
+                <id>4</id>
+                <firstName>Oliver</firstName>
+                <lastName>George</lastName>
+                <gender>M</gender>
+                <age>24</age>
+                <occupation>43537</occupation>
+                <ratings/>
+              </models.User>
+            </entry>
+            <entry>
+              <long>5</long>
+              <models.User>
+                <id>5</id>
+                <firstName>Jenna</firstName>
+                <lastName>Parker</lastName>
+                <gender>F</gender>
+                <age>33</age>
+                <occupation>15213</occupation>
                 <ratings/>
               </models.User>
             </entry>

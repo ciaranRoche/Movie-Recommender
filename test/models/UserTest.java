@@ -11,8 +11,8 @@ import static models.Fixtures.users;
 
 public class UserTest {
 
-	User Joe = new User("Joe", "Bloggs", "Male", 21, "Programmer");
-	User Jane = new User("Jane", "Bloggs", "Female", 22, "Hacker");
+	User Joe = new User("Joe", "Bloggs", "Male", "21", "Programmer");
+	User Jane = new User("Jane", "Bloggs", "Female", "22", "Hacker");
 	
 	@Test
 	public void testCreate(){
@@ -39,7 +39,7 @@ public class UserTest {
 	
 	@Test
 	public void testEquals(){
-		User Joei = new User("Joe", "Bloggs", "Male", 21, "Programmer");
+		User Joei = new User("Joe", "Bloggs", "Male", "21", "Programmer");
 		
 		assertEquals(Joe, Joe);
 		assertEquals(Joe, Joei);

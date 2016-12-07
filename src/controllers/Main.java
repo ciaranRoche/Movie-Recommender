@@ -18,8 +18,10 @@ public class Main {
 		movieRecommenderAPI.load();
 	}
 	
-	movieRecommenderAPI.addUser("Joe", "Bloggs", "male", 21, "coder");
-	movieRecommenderAPI.addUser("Jane", "Bloggs", "female", 22, "hacker");
+	movieRecommenderAPI.prime();
+	
+	//movieRecommenderAPI.addUser("Joe", "Bloggs", "male", "21", "coder");
+	//movieRecommenderAPI.addUser("Jane", "Bloggs", "female", "22", "hacker");
 	
 	Collection<User> users = movieRecommenderAPI.getUsers();
 	System.out.println(users);

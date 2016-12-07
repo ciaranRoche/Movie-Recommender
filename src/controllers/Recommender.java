@@ -5,7 +5,7 @@ import models.User;
 
 public interface Recommender {
 
-	public User addUser(String firstName,String lastName,String gender,int age,String occupation);
+	public User addUser(String firstName,String lastName,String gender,String age,String occupation);
 	
 	public void removeUser(long userID);
 	
@@ -24,4 +24,6 @@ public interface Recommender {
 	public void load() throws Exception;
 	
 	public void write() throws Exception;
+	
+	public void prime() throws Exception;
 }
