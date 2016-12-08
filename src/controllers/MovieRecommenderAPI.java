@@ -11,6 +11,7 @@ import utils.DataInput;
 import utils.Serializer;
 
 import models.Rating;
+import models.User;
 public class MovieRecommenderAPI implements Recommender{
 
 	public Map<Long, User> userIndex = new HashMap<>();
@@ -33,8 +34,12 @@ public class MovieRecommenderAPI implements Recommender{
 		return user;
 	}
 
-	public void removeUser(long userID) {
-		userIndex.clear();
+	public User removeUser(long userID) throws Exception {
+		User user = getUser(userID);
+		
+		userIndex.remove(user);
+
+		return user;
 	}
 	
 	

@@ -7,7 +7,7 @@ public interface Recommender {
 
 	public User addUser(String firstName,String lastName,String gender,String age,String occupation);
 	
-	public void removeUser(long userID);
+	public User removeUser(long userID) throws Exception;
 	
 	public Movie addMovie(String title, String year, String url);
 	
