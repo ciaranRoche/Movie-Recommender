@@ -1,6 +1,7 @@
 package controllers;
 
 import models.Movie;
+import models.Rating;
 import models.User;
 
 public interface Recommender {
@@ -9,9 +10,9 @@ public interface Recommender {
 	
 	public User removeUser(long userID) throws Exception;
 	
-	public Movie addMovie(String title, String year, String url);
+	public Movie addMovie(String title, String year, String url, int rating);
 	
-	public void addRating(long userID,long movieID,double rating);
+	public Rating addRating(long userID,long movieID,int rating);
 	
 	public Movie getMovie(long movieID);
 	

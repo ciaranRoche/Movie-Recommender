@@ -13,6 +13,8 @@ import models.User;
 import utils.Serializer;
 import utils.XMLSerializer;
 import models.Movie;
+import models.Rating;
+
 public class Main {
 	
 	public MovieRecommenderAPI moviAPI;
@@ -23,6 +25,7 @@ public class Main {
 
 	private User user;
 	private Movie movie;
+	private Rating rating;
 	
 	public Main() throws Exception{
 		input = new Scanner(System.in);
@@ -92,9 +95,10 @@ public class Main {
 	@Command(description="Add a new movie")
 	public String addMovie(@Param(name="title") String title,
 									@Param(name="year") String year,
-									@Param(name="URL") String url){
+									@Param(name="URL") String url,
+									@Param(name="rating") int rating){
 		
-		movie = moviAPI.addMovie(title, year, url);
+		movie = moviAPI.addMovie(title, year, url, rating);
 		return "\nMovie: " + movie.title + " added";
 	}
 	
@@ -110,6 +114,20 @@ public class Main {
 	public String getMovie(@Param(name="movieID") long movieID){
 		movie = moviAPI.getMovie(movieID);
 		return movie.toString();	
+	}
+	
+	@Command(description="Add a Rating")
+	public String addRating(@Param(name="userID") long userID, @Param(name="movieID") long movieID, @Param(name="rating") int rating){
+		moviAPI.addRating(userID, movieID, rating);
+		movie = moviAPI.getMovie(movieID);
+		user = moviAPI.getUser(userID);
+		return "Movie " + movie.title + " Rated " + rating + " by " + user.firstName;
+	}
+	
+	@Command(description="Get a Rating")
+	public String getRating(@Param(name="movieID") long movieID){
+		rating = moviAPI.getRating(movieID);
+		return rating.toString();
 	}
 	
 	

@@ -9,14 +9,18 @@ public class Movie {
 	public String title;
 	public String year;
 	public String url;
+	
+	public int rating;
 
 	public Long id;
 	
-	public Movie(String title, String year, String url){
+	public Movie(String title, String year, String url, int rating){
 		this.id = counter ++;
 		this.title = title;
 		this.year = year;
 		this.url = url;
+		
+		this.rating = rating;
 	}
 	
 	@Override
@@ -25,6 +29,7 @@ public class Movie {
 				                   .addValue(title)
 				                   .addValue(year)
 				                   .addValue(url)
+				                   .addValue(rating)
 				                   .toString();
 	}
 	

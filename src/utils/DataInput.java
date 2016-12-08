@@ -58,8 +58,9 @@ public class DataInput {
 				String title		= movieTokens[1];
 				String year			= movieTokens[2];
 				String url			= movieTokens[3];
+				int rating			= 0;
 				
-				movies.add(new Movie(title, year, url));
+				movies.add(new Movie(title, year, url, rating));
 			}else{
 				throw new Exception("Invalid movie lenght: " + movieTokens.length);
 			}

@@ -55,8 +55,8 @@ public class MovieRecommenderAPI implements Recommender{
 		return userIndex.values();
 	}
 
-	public Movie addMovie(String title, String year, String url) {
-		Movie movie = new Movie(title, year, url);
+	public Movie addMovie(String title, String year, String url, int rating) {
+		Movie movie = new Movie(title, year, url, rating);
 		movieIndex.put(movie.id, movie);
 		return movie;
 	}
@@ -75,8 +75,14 @@ public class MovieRecommenderAPI implements Recommender{
 	}
 
 
-	public void addRating(long userID, long movieID, double rating) {
-		// TODO Auto-generated method stub	
+	public Rating addRating(long userID, long movieID, int rating) {
+		Rating r = new Rating(userID, movieID, rating);
+		Movie movie = getMovie(movieID);
+		movie.rating += rating;
+		
+		ratingIndex.put(movieID, r);
+		return r;
+		
 	}
 
 	
@@ -94,9 +100,9 @@ public class MovieRecommenderAPI implements Recommender{
 		return 0;
 	}
 	
-//	public Rating getRating(long userID, long movieID){
-//		return ratingIndex.get(key);
-//	}
+	public Rating getRating(long movieID){
+		return ratingIndex.get(movieID);
+	}
 
 
 	public double getUserRecommendations(long userID) {
