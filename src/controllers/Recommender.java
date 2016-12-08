@@ -13,9 +13,9 @@ public interface Recommender {
 	
 	public void addRating(long userID,long movieID,double rating);
 	
-	public double getMovie(long movieID);
+	public Movie getMovie(long movieID);
 	
-	public double getUserRathing(long userID);
+	public double getUserRating(long userID);
 	
 	public double getUserRecommendations(long userID);
 	

@@ -12,6 +12,7 @@ import utils.Serializer;
 
 import models.Rating;
 import models.User;
+
 public class MovieRecommenderAPI implements Recommender{
 
 	public Map<Long, User> userIndex = new HashMap<>();
@@ -44,7 +45,10 @@ public class MovieRecommenderAPI implements Recommender{
 	
 	
 	public User getUser(Long id){
-	    return userIndex.get(id);
+		for(User user : userIndex.values())
+			if(user.id == id)
+				return user;
+	    return null;
 	  }
 	
 	public Collection<User> getUsers(){
@@ -57,27 +61,42 @@ public class MovieRecommenderAPI implements Recommender{
 		return movie;
 	}
 	
+	public Movie removeMovie(Long movieID) throws Exception{
+		Movie movie = getMovie(movieID);
+		
+		movieIndex.remove(movie);
+		
+		return movie;
+		
+	}
+	
 	public Collection<Movie> getMovies(){
 		return movieIndex.values();
 	}
 
 
 	public void addRating(long userID, long movieID, double rating) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 	}
 
 	
-	public double getMovie(long movieID) {
-		return movieID;
-		// TODO Auto-generated method stub
+	public Movie getMovie(long movieID) {	
+		for(Movie movie : movieIndex.values())
+			if(movie.id == movieID)
+				return movie;
+			
+		return null;	
 	}
 
 	
-	public double getUserRathing(long userID) {
+	public double getUserRating(long userID) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+//	public Rating getRating(long userID, long movieID){
+//		return ratingIndex.get(key);
+//	}
 
 
 	public double getUserRecommendations(long userID) {

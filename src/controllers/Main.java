@@ -22,6 +22,7 @@ public class Main {
 	private Scanner input;
 
 	private User user;
+	private Movie movie;
 	
 	public Main() throws Exception{
 		input = new Scanner(System.in);
@@ -39,7 +40,7 @@ public class Main {
 		Main main = new Main();
 		Shell shell = ShellFactory.createConsoleShell("EMDB", "<-------------------->\n   Welcome to EMDB\nEclipse Movie Data Base\n<-------------------->\n   - ?help for instructions", main);
 		shell.commandLoop();
-		//main.moviAPI.write();
+		main.moviAPI.write();
 	}
 	
 	@Command(description="Load data")
@@ -65,11 +66,45 @@ public class Main {
 	}
 	
 	@Command(description="Remove a user")
-	public String removeUser(@Param(name="userID") Long userID) throws Exception{
-		
+	public String removeUser(@Param(name="userID") long userID) throws Exception{	
 		user = moviAPI.removeUser(userID);
-		return "\nUSER: " + user.firstName + " removed.";
-		
+		return "\nUser: " + user.firstName + " removed.";	
 	}
-
+	
+	@Command(description="Get a specific user")
+	public String getUser(@Param(name="userID") long userID){
+		user = moviAPI.getUser(userID);
+		return user.toString();
+	}
+	
+	@Command(description="Get List of Movies")
+	public void getMovies(){
+		Collection<Movie>movies = moviAPI.getMovies();
+		System.out.println(movies);
+	}
+	
+	@Command(description="Add a new movie")
+	public String addMovie(@Param(name="title") String title,
+									@Param(name="year") String year,
+									@Param(name="URL") String url){
+		
+		movie = moviAPI.addMovie(title, year, url);
+		return "\nMovie: " + movie.title + " added";
+	}
+	
+	@Command(description="Remove a movie")
+	public String removeMovie(@Param(name="movieID") long movieID) throws Exception{
+		
+		movie = moviAPI.removeMovie(movieID);
+		
+		return "\nMovie: " + movie.title + " removed.";
+	}
+	
+	@Command(description="Get a specific movie")
+	public String getMovie(@Param(name="movieID") long movieID){
+		movie = moviAPI.getMovie(movieID);
+		return movie.toString();	
+	}
+	
+	
 }
