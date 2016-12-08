@@ -73,11 +73,11 @@
               <long>0</long>
               <models.User>
                 <id>0</id>
-                <firstName>Leonard</firstName>
-                <lastName>Hernandez</lastName>
-                <gender>M</gender>
-                <age>24</age>
-                <occupation>85711</occupation>
+                <firstName>joe,</firstName>
+                <lastName>bloggs,</lastName>
+                <gender>male,</gender>
+                <age>21,</age>
+                <occupation>student</occupation>
                 <ratings/>
               </models.User>
             </entry>

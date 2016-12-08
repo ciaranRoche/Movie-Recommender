@@ -49,6 +49,12 @@ public class Main {
 		return "Data Loaded";
 	}
 	
+	@Command(description="Save data")
+	public String save() throws Exception{
+		moviAPI.write();
+		return "Data Saved";
+	}
+	
 	@Command(description="Get List of Users")
 	public void getUsers(){
 		Collection<User>users = moviAPI.getUsers();
