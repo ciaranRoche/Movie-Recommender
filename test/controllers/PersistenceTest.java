@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import models.Movie;
 import models.User;
+
 import utils.Serializer;
 import utils.XMLSerializer;
 import models.Rating;
