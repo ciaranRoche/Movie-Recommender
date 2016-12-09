@@ -18,10 +18,10 @@ public class Fixtures {
 	};
 	
 	public static Rating[] ratings ={
-			new Rating(0, 0, 2),
-			new Rating(1, 1, 3),
-			new Rating(2, 2, 4),
-			new Rating(3, 3, 5),
-			new Rating(0, 4, 2)
+			new Rating(0, 0, 2.0),
+			new Rating(1, 1, 3.0),
+			new Rating(2, 2, 4.0),
+			new Rating(3, 3, 5.0),
+			new Rating(0, 4, 2.0)
 	};
 }
