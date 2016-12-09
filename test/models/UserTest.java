@@ -19,7 +19,7 @@ public class UserTest {
 		assertEquals("Joe", Joe.firstName);
 		assertEquals("Bloggs", Joe.lastName);
 		assertEquals("Male", Joe.gender);
-		assertEquals(21, Joe.age);
+		assertEquals("21", Joe.age);
 		assertEquals("Programmer", Joe.occupation);
 	}
 	
