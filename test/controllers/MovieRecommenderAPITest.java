@@ -58,7 +58,7 @@ public class MovieRecommenderAPITest {
 	@Test
 	public void testUser(){
 		assertEquals(users.length, moviAPI.getUsers().size());
-		moviAPI.addUser("Mr", "Robot", "M", 42, "Coder");
+		moviAPI.addUser("Mr", "Robot", "M", "42", "Coder");
 		assertEquals (users.length+1, moviAPI.getUsers().size());	
 	}
 	
@@ -79,7 +79,7 @@ public class MovieRecommenderAPITest {
 	@Test
 	public void testRemoveUser() throws Exception{
 		assertEquals(users.length, moviAPI.getUsers().size());
-		User test = moviAPI.addUser("TEST", "TEST", "TEST", 22, "TEST");
+		User test = moviAPI.addUser("TEST", "TEST", "TEST", "22", "TEST");
 		assertEquals(users.length+1, moviAPI.getUsers().size());
 		moviAPI.removeUser(test);
 		assertEquals(users.length, moviAPI.getUsers().size());
@@ -88,7 +88,7 @@ public class MovieRecommenderAPITest {
 	@Test
 	public void testAddUser(){
 		assertEquals(users.length, moviAPI.getUsers().size());
-		moviAPI.addUser("bob", "bob", "m", 22, "job");
+		moviAPI.addUser("bob", "bob", "m", "22", "job");
 		assertEquals(users.length+1, moviAPI.getUsers().size());
 	}
 	

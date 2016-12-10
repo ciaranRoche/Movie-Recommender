@@ -8,7 +8,7 @@ import models.User;
 
 public interface Recommender {
 
-	public User addUser(String firstName,String lastName,String gender,int age,String occupation);
+	public User addUser(String firstName,String lastName,String gender,String age,String occupation);
 	
 	public void removeUser(User user) throws Exception;
 	

@@ -66,7 +66,7 @@ public class Main {
 	@Command(description="Add a new user")
 	public String addUser(@Param(name="first name") String firstName,
 										@Param(name="last name") String lastName,
-										@Param(name="age") int age,
+										@Param(name="age") String age,
 										@Param(name="gender") String gender,
 										@Param(name="occupation") String occupation){
 		user = moviAPI.addUser(firstName, lastName, gender, age, occupation);

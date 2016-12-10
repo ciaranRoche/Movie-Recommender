@@ -32,7 +32,7 @@ public class MovieRecommenderAPI implements Recommender{
 	}
 	
 
-	public User addUser(String firstName, String lastName, String gender, int age, String occupation) {
+	public User addUser(String firstName, String lastName, String gender, String age, String occupation) {
 		User user = new User(firstName, lastName, gender, age, occupation);
 		userIndex.put(user.id, user);
 		return user;
