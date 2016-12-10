@@ -155,5 +155,5 @@ public class Main {
 		Collection<Rating> ratings = moviAPI.getRatings();
 		System.out.println(ratings);
 	}
-		
+	
 }

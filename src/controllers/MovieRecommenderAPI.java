@@ -14,6 +14,7 @@ import utils.Serializer;
 
 import models.Rating;
 
+
 public class MovieRecommenderAPI implements Recommender{
 
 	public Map<Long, User> userIndex = new HashMap<>();
@@ -25,7 +26,6 @@ public class MovieRecommenderAPI implements Recommender{
 	public MovieRecommenderAPI(){
 		
 	}
-	
 	
 	public MovieRecommenderAPI(Serializer serializer){
 		this.serializer = serializer;
@@ -46,8 +46,8 @@ public class MovieRecommenderAPI implements Recommender{
 	}
 	
 	
-	public void removeUser(User user) throws Exception {
-		userIndex.remove(user);
+	public void removeUser(User user) throws Exception{
+		userIndex.remove(user.id);
 	}
 	
 	
@@ -84,7 +84,7 @@ public class MovieRecommenderAPI implements Recommender{
 	public Rating addRating(long userID, long movieID, double rating) {
 		Rating r = new Rating(userID, movieID, rating);
 		Movie movie = getMovie(movieID);
-		movie.rating.add(r);
+		//movie.rating.add(r);
 		ratingIndex.put(movieID, r);
 		return r;	
 	}
@@ -120,13 +120,29 @@ public class MovieRecommenderAPI implements Recommender{
 		return ratingIndex.values();
 	}
 	
+	public double averageRating(){
+		double total = 0;
+		int count = 0;
+		for(Rating rating : ratingIndex.values()){
+			total += rating.rating;
+			count++;
+		}
+		if(count != 0){
+			return total/count;
+		}else{
+			return 0;
+		}
+		
+		
+	}
+	
 
 	@Override
 	public List<Movie>getTopTenMovie(){
 		Collection<Movie> allMovie = getMovies();
 		List<Movie> movieList = new ArrayList<Movie>(allMovie);
 		//Collections.sort(movieList);
-		Collections.reverse(movieList);
+		//Collections.reverse(movieList);
 		List<Movie> sub = movieList.subList(0, 10 > movieList.size() ? movieList.size() : 10);
 		return sub;	
 	}
@@ -163,6 +179,9 @@ public class MovieRecommenderAPI implements Recommender{
 		List<Rating> ratings = loader.loadRatings("././data/ratings5.dat");
 		for (Rating rating : ratings){
 			addRating(rating.userId, rating.movieId, rating.rating);
+			//addRatingList(rating.userId, rating.movieId, rating.rating);
 		}
 	}
+	
+	
 }

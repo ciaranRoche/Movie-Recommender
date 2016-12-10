@@ -61,6 +61,36 @@ public class MovieRecommenderAPITest {
 //		assertEquals(ratings.length+1, moviAPI.getRatings().size());
 	}
 	
+	@Test
+	public void testRemoveUser() throws Exception{
+		assertEquals(users.length, moviAPI.getUsers().size());
+		User test = moviAPI.addUser("TEST", "TEST", "TEST", "TEST", "TEST");
+		assertEquals(users.length+1, moviAPI.getUsers().size());
+		moviAPI.removeUser(test);
+		assertEquals(users.length, moviAPI.getUsers().size());
+	}
 	
+	@Test
+	public void testAddUser(){
+		assertEquals(users.length, moviAPI.getUsers().size());
+		moviAPI.addUser("bob", "bob", "m", "22", "job");
+		assertEquals(users.length+1, moviAPI.getUsers().size());
+	}
+	
+	@Test
+	public void testAddMovie(){
+		assertEquals(movies.length, moviAPI.getMovies().size());
+		moviAPI.addMovie("title", "year", "url");
+		assertEquals(movies.length+1, moviAPI.getMovies().size());
+	}
+	
+	@Test
+	public void testRemoveMovie() throws Exception{
+		assertEquals(movies.length, moviAPI.getMovies().size());
+		Movie test = moviAPI.addMovie("title", "year", "url");
+		assertEquals(movies.length+1, moviAPI.getMovies().size());
+		moviAPI.removeMovie(test);
+		assertEquals(movies.length, moviAPI.getMovies().size());	
+	}
 	
 }
