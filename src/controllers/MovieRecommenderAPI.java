@@ -32,19 +32,19 @@ public class MovieRecommenderAPI implements Recommender{
 	}
 	
 
-	public User addUser(String firstName, String lastName, String gender, String age, String occupation) {
+	public User addUser(String firstName, String lastName, String gender, int age, String occupation) {
 		User user = new User(firstName, lastName, gender, age, occupation);
 		userIndex.put(user.id, user);
 		return user;
 	}
 	
-
-	public User addUser(Long id, String firstName, String lastName, String age, String gender, String occupation){
-		User user = new User(id, firstName, lastName, age, gender, occupation);
-		userIndex.put(user.id, user);
-		return user;
-	}
-	
+//
+//	public User addUser(Long id, String firstName, String lastName, String age, String gender, String occupation){
+//		User user = new User(id, firstName, lastName, age, gender, occupation);
+//		userIndex.put(user.id, user);
+//		return user;
+//	}
+//	
 	
 	public void removeUser(User user) throws Exception{
 		userIndex.remove(user.id);

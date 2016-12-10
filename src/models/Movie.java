@@ -15,7 +15,7 @@ public class Movie implements Comparable<Movie>{
 	public String url;
 	
 	//public double rating;
-	public List<Rating> rating = new ArrayList<Rating>();
+	public List<Rating> ratingList = new ArrayList<Rating>();
 
 	public Long id;
 	
@@ -26,12 +26,17 @@ public class Movie implements Comparable<Movie>{
 		this.url = url;
 	}
 	
+//	public String toString(){
+//		return "id: " + id + " title: " + title + " year " + year + " url " + url + " rating " + averageRating();
+//	}
+	
 	@Override
 	public String toString(){
 		return toStringHelper(this).addValue(id)
 				                   .addValue(title)
 				                   .addValue(year)
-				                   .addValue(url)			                
+				                   .addValue(url)
+				
 				                   .toString();
 	}
 	
@@ -45,17 +50,12 @@ public class Movie implements Comparable<Movie>{
 		}else{
 			return false;
 		}
+		
 	}
-	
-	
-	public String getTitle(){
-		return title;
-	}
-	
 	public double averageRating(){
 		double total = 0;
 		int count = 0;
-		for(Rating rating : rating){
+		for(Rating rating : ratingList){
 			total += rating.rating;
 			count++;
 		}
@@ -67,6 +67,10 @@ public class Movie implements Comparable<Movie>{
 		
 		
 	}
+	public String getTitle(){
+		return title;
+	}
+	
 	
 	@Override
 	public int hashCode(){

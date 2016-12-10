@@ -15,7 +15,7 @@ public class Rating {
 	public long movieId;
 	public double rating;
 	
-	public List<Movie> movie = new ArrayList<Movie>();
+//	public List<Movie> movie = new ArrayList<Movie>();
 	
 	public long id; 
 	

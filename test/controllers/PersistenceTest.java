@@ -51,7 +51,7 @@ public class PersistenceTest {
 		populate(moviAPI);
 		
 		assertEquals(4, moviAPI.getUsers().size());
-		assertEquals(5, moviAPI.getMovies().size());
+		assertEquals(4, moviAPI.getMovies().size());
 		//assertEquals(5, moviAPI.getRatings().size());
 	}
 	

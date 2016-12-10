@@ -30,7 +30,7 @@ public class DataInput {
 				String id 		  = userTokens[0];
 				String firstName  = userTokens[1];
 				String lastName	  = userTokens[2];
-				String age		  = userTokens[3];
+				int age		  	  = Integer.parseInt(userTokens[3]);
 				String gender	  = userTokens[4];
 				String occupation = userTokens[6];
 				

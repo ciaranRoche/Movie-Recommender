@@ -19,10 +19,10 @@ public class RatingTest {
 			assertNotEquals(1, rat0.rating);				
 		}
 		
-		@Test
-		public void testToString(){
-			assertEquals("Rating{0, 0, 0, 0.0}", rat0.toString());
-		}
+//		@Test
+//		public void testToString(){
+//			assertEquals("Rating{0, 0, 0, 0.0}", rat0.toString());
+//		}
 		
 		@Test
 		public void testEquals(){

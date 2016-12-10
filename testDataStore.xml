@@ -8,9 +8,9 @@
         <elementData>
           <map>
             <entry>
-              <long>8</long>
+              <long>60</long>
               <models.User>
-                <id>8</id>
+                <id>60</id>
                 <firstName>Joe</firstName>
                 <lastName>Bloggs</lastName>
                 <gender>male</gender>
@@ -20,9 +20,9 @@
               </models.User>
             </entry>
             <entry>
-              <long>9</long>
+              <long>61</long>
               <models.User>
-                <id>9</id>
+                <id>61</id>
                 <firstName>Jane</firstName>
                 <lastName>Bloggs</lastName>
                 <gender>female</gender>
@@ -32,9 +32,9 @@
               </models.User>
             </entry>
             <entry>
-              <long>10</long>
+              <long>62</long>
               <models.User>
-                <id>10</id>
+                <id>62</id>
                 <firstName>Alice</firstName>
                 <lastName>Bloggs</lastName>
                 <gender>female</gender>
@@ -44,9 +44,9 @@
               </models.User>
             </entry>
             <entry>
-              <long>11</long>
+              <long>63</long>
               <models.User>
-                <id>11</id>
+                <id>63</id>
                 <firstName>Bob</firstName>
                 <lastName>Bloggs</lastName>
                 <gender>male</gender>
@@ -58,53 +58,43 @@
           </map>
           <map>
             <entry>
-              <long>10</long>
-              <models.Movie>
-                <title>The Matrix</title>
-                <year>42-Jan-4242</year>
-                <url>www.thematrix.com</url>
-                <rating/>
-                <id>10</id>
-              </models.Movie>
-            </entry>
-            <entry>
-              <long>11</long>
+              <long>64</long>
               <models.Movie>
                 <title>Iron Man</title>
                 <year>42-Jan-4242</year>
                 <url>www.ironman,com</url>
-                <rating/>
-                <id>11</id>
+                <ratingList/>
+                <id>64</id>
               </models.Movie>
             </entry>
             <entry>
-              <long>12</long>
+              <long>65</long>
               <models.Movie>
                 <title>World War Z</title>
                 <year>42-Jan-4242</year>
                 <url>www.worldwarz.com</url>
-                <rating/>
-                <id>12</id>
+                <ratingList/>
+                <id>65</id>
               </models.Movie>
             </entry>
             <entry>
-              <long>13</long>
+              <long>66</long>
               <models.Movie>
                 <title>Resident Evil</title>
                 <year>42-Jan-4242</year>
                 <url>www.residentevil.com</url>
-                <rating/>
-                <id>13</id>
+                <ratingList/>
+                <id>66</id>
               </models.Movie>
             </entry>
             <entry>
-              <long>14</long>
+              <long>63</long>
               <models.Movie>
-                <title>Up</title>
+                <title>The Matrix</title>
                 <year>42-Jan-4242</year>
-                <url>www.up.com</url>
-                <rating/>
-                <id>14</id>
+                <url>www.thematrix.com</url>
+                <ratingList/>
+                <id>63</id>
               </models.Movie>
             </entry>
           </map>
