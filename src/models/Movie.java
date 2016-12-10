@@ -13,9 +13,7 @@ public class Movie implements Comparable<Movie>{
 	public String title;
 	public String year;
 	public String url;
-	
-	//public double rating;
-	public List<Rating> ratingList = new ArrayList<Rating>();
+	public List<Rating> ratings = new ArrayList<Rating>();
 
 	public Long id;
 	
@@ -25,10 +23,6 @@ public class Movie implements Comparable<Movie>{
 		this.year = year;
 		this.url = url;
 	}
-	
-//	public String toString(){
-//		return "id: " + id + " title: " + title + " year " + year + " url " + url + " rating " + averageRating();
-//	}
 	
 	@Override
 	public String toString(){
@@ -52,10 +46,47 @@ public class Movie implements Comparable<Movie>{
 		}
 		
 	}
+	
+	public void addRating(Rating rating){
+		ratings.add(rating);
+	}
+	
+	public List<Rating> getRatings(){
+		return ratings;
+	}
+	
+	public void setRatings(List<Rating> ratings){
+		this.ratings = ratings;
+	}
+	
+	public String getTitle(){
+		return title;
+	}
+	
+	public void setTitle(String title){
+		this.title = title;
+	}
+	
+	public String getUrl(){
+		return url;
+	}
+	
+	public void setUrl(String url){
+		this.url = url;
+	}
+	
+	public void setYear(String year){
+		this.year = year;
+	}
+	
+	public String getYear(){
+		return year;
+	}
+	
 	public double averageRating(){
 		double total = 0;
 		int count = 0;
-		for(Rating rating : ratingList){
+		for(Rating rating : ratings){
 			total += rating.rating;
 			count++;
 		}
@@ -63,14 +94,8 @@ public class Movie implements Comparable<Movie>{
 			return total/count;
 		}else{
 			return 0;
-		}
-		
-		
+		}	
 	}
-	public String getTitle(){
-		return title;
-	}
-	
 	
 	@Override
 	public int hashCode(){
@@ -83,4 +108,5 @@ public class Movie implements Comparable<Movie>{
 		return Double.compare(this.averageRating(), other.averageRating());
 	}
 
+	
 }

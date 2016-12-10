@@ -40,8 +40,8 @@ public class MovieTest {
 	
 	@Test
 	public void testCompareToLessThan(){
-		logan.ratingList.add(new Rating(0, 1, 5));
-		star.ratingList.add(new Rating(0, 2, 4));
+		logan.ratings.add(new Rating(0, 1, 5));
+		star.ratings.add(new Rating(0, 2, 4));
 		
 		logan.compareTo(star);
 		
@@ -50,8 +50,8 @@ public class MovieTest {
 	
 	@Test
 	public void testCompareToSame(){
-		logan.ratingList.add(new Rating(0, 1, 5));
-		star.ratingList.add(new Rating(0, 2, 5));
+		logan.ratings.add(new Rating(0, 1, 5));
+		star.ratings.add(new Rating(0, 2, 5));
 		
 		logan.compareTo(star);
 		
@@ -60,8 +60,8 @@ public class MovieTest {
 	
 	@Test
 	public void testCompareToGreater(){
-		logan.ratingList.add(new Rating(0, 1, 4));
-		star.ratingList.add(new Rating(0, 2, 5));
+		logan.ratings.add(new Rating(0, 1, 4));
+		star.ratings.add(new Rating(0, 2, 5));
 		
 		logan.compareTo(star);
 		

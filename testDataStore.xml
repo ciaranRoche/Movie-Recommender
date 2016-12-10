@@ -8,9 +8,9 @@
         <elementData>
           <map>
             <entry>
-              <long>60</long>
+              <long>59</long>
               <models.User>
-                <id>60</id>
+                <id>59</id>
                 <firstName>Joe</firstName>
                 <lastName>Bloggs</lastName>
                 <gender>male</gender>
@@ -20,9 +20,9 @@
               </models.User>
             </entry>
             <entry>
-              <long>61</long>
+              <long>60</long>
               <models.User>
-                <id>61</id>
+                <id>60</id>
                 <firstName>Jane</firstName>
                 <lastName>Bloggs</lastName>
                 <gender>female</gender>
@@ -32,9 +32,9 @@
               </models.User>
             </entry>
             <entry>
-              <long>62</long>
+              <long>61</long>
               <models.User>
-                <id>62</id>
+                <id>61</id>
                 <firstName>Alice</firstName>
                 <lastName>Bloggs</lastName>
                 <gender>female</gender>
@@ -44,9 +44,9 @@
               </models.User>
             </entry>
             <entry>
-              <long>63</long>
+              <long>62</long>
               <models.User>
-                <id>63</id>
+                <id>62</id>
                 <firstName>Bob</firstName>
                 <lastName>Bloggs</lastName>
                 <gender>male</gender>
@@ -63,6 +63,7 @@
                 <title>Iron Man</title>
                 <year>42-Jan-4242</year>
                 <url>www.ironman,com</url>
+                <rating>0.0</rating>
                 <ratingList/>
                 <id>64</id>
               </models.Movie>
@@ -73,6 +74,7 @@
                 <title>World War Z</title>
                 <year>42-Jan-4242</year>
                 <url>www.worldwarz.com</url>
+                <rating>0.0</rating>
                 <ratingList/>
                 <id>65</id>
               </models.Movie>
@@ -83,6 +85,7 @@
                 <title>Resident Evil</title>
                 <year>42-Jan-4242</year>
                 <url>www.residentevil.com</url>
+                <rating>0.0</rating>
                 <ratingList/>
                 <id>66</id>
               </models.Movie>
@@ -93,6 +96,7 @@
                 <title>The Matrix</title>
                 <year>42-Jan-4242</year>
                 <url>www.thematrix.com</url>
+                <rating>0.0</rating>
                 <ratingList/>
                 <id>63</id>
               </models.Movie>

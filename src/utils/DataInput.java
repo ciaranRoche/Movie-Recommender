@@ -27,14 +27,14 @@ public class DataInput {
 			String userDetails = inUsers.readLine();
 			String[] userTokens = userDetails.split(delims);
 			if(userTokens.length == 7){
-				String id 		  = userTokens[0];
+				Long id 		  = Long.parseLong(userTokens[0]);
 				String firstName  = userTokens[1];
 				String lastName	  = userTokens[2];
 				String age		  = userTokens[3];
 				String gender	  = userTokens[4];
 				String occupation = userTokens[6];
 				
-				users.add(new User(firstName, lastName, gender, age, occupation));					
+				users.add(new User(id, firstName, lastName, gender, age, occupation));					
 			}else{
 				throw new Exception("Invalid member lenght: " + userTokens.length);
 			}

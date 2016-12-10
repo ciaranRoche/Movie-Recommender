@@ -77,7 +77,7 @@ public class Main {
 	@Command(description="Remove a user")
 	public void removeUser(@Param(name="userID") long userID) throws Exception{	
 		User user = moviAPI.getUser(userID);
-		moviAPI.removeUser(user);
+		moviAPI.removeUser(userID);
 		System.out.println("\nUser: " + user.firstName + " removed.");	
 	}
 	

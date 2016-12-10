@@ -23,24 +23,21 @@ public class User {
 	public User(){
 		
 	}
-//	
-//	public User(Long id, String firstName, String lastName, String gender, String age, String occupation){
-//		this.id = counter++;
-//		this.firstName = firstName;
-//		this.lastName = lastName;
-//		this.gender	= gender;
-//		this.age = age;
-//		this.occupation = occupation;
-//	}
-	
+	/**
+	 * One of two constructors.
+	 * Used when a user is added in the cliche shell command line
+	 * @param firstName
+	 * @param lastName
+	 * @param gender
+	 * @param age
+	 * @param occupation
+	 */
 	public User(String firstName, String lastName, String gender, String age, String occupation){
 		
 		if(firstName == null || firstName == "" || lastName == null
 				|| lastName == ""){
 			throw new IllegalArgumentException();
 		}
-		
-
 		this.id = counter++;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -48,6 +45,28 @@ public class User {
 		this.age = age;
 		this.occupation = occupation;
 	}
+	/**
+	 * One of two constructors.
+	 * Used when a user is being parsed at the data input
+	 * @param id
+	 * @param firstName
+	 * @param lastName
+	 * @param gender
+	 * @param age
+	 * @param occupation
+	 */
+	public User(Long id, String firstName, String lastName, String gender, String age, String occupation){
+		this.id = id;
+		if(id >= counter){
+			counter = id + 1;
+		}
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.gender	= gender;
+		this.age = age;
+		this.occupation = occupation;
+	}
+	
 	
 	public String toString(){
 		return toStringHelper(this).addValue(id)
@@ -79,5 +98,55 @@ public class User {
 		}
 	}
 	
-
+	public void addRating(Rating rating){
+		ratings.add(rating);
+	}
+	
+	public List<Rating> getRatings(){
+		return ratings;
+	}
+	
+	public void setRatings(List<Rating> ratings){
+		this.ratings = ratings;
+	}
+	
+	public Long getId(){
+		return id;
+	}
+	
+	public void setId(Long id){
+		this.id = id;
+	}
+	
+	public String getFirstName(){
+		return firstName;
+	}
+	
+	public void setFirstName(String firstName){
+		this.firstName = firstName;
+	}
+	
+	public String getLastName(){
+		return lastName;
+	}
+	
+	public void setLastName(String lastName){
+		this.lastName = lastName;
+	}
+	
+	public String getAge(){
+		return age;
+	}
+	
+	public void setAge(String age){
+		this.age = age;
+	}
+	
+	public String getOccupation(){
+		return occupation;
+	}
+	
+	public void setOccupation(String occupation){
+		this.occupation = occupation;
+	}
 }

@@ -3,6 +3,7 @@ package controllers;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,8 +47,8 @@ public class MovieRecommenderAPI implements Recommender{
 //	}
 //	
 	
-	public void removeUser(User user) throws Exception{
-		userIndex.remove(user.id);
+	public void removeUser(Long userID) throws Exception{
+		userIndex.remove(userID);
 	}
 	
 	
@@ -121,6 +122,7 @@ public class MovieRecommenderAPI implements Recommender{
 	}
 	
 	public double averageRating(){
+		List<Rating> ratedMovies = new ArrayList<Rating>();
 		double total = 0;
 		int count = 0;
 		for(Rating rating : ratingIndex.values()){
@@ -132,20 +134,82 @@ public class MovieRecommenderAPI implements Recommender{
 		}else{
 			return 0;
 		}
-		
-		
+			
 	}
 	
-
-	@Override
-	public List<Movie>getTopTenMovie(){
-		Collection<Movie> allMovie = getMovies();
-		List<Movie> movieList = new ArrayList<Movie>(allMovie);
-		//Collections.sort(movieList);
-		//Collections.reverse(movieList);
-		List<Movie> sub = movieList.subList(0, 10 > movieList.size() ? movieList.size() : 10);
-		return sub;	
+	public List<Rating> ratings(){
+		ArrayList<Rating> ratingIndex = new ArrayList<Rating>();
+		for(User user : userIndex.values()){
+			for(Rating rating : user.getRatings()){
+				ratingIndex.add(rating);
+			}
+		}return ratingIndex;
 	}
+	
+	@Override
+	public List<Movie> getTopTenMovie(){
+		List<Movie> movies = new ArrayList<Movie>();
+		for(Movie movie : movieIndex.values()){
+			movies.add(movie);
+		}
+		Collections.sort(movies);
+		Collections.reverse(movies);
+		if(movies.size()<10){
+			return movies;
+		}else{
+			return movies.subList(0, 10);
+		}
+	}
+	
+	
+	
+//	public double averageRatings(long movieID) throws Exception{
+//		double rating = 0;
+//		int count = 0;
+//		
+//		Movie movie = getMovie(movieID);
+//		
+//		for(Rating r : ratingIndex.values()){
+//			rating += movie.rating;
+//			count ++;
+//		}
+//		if(count != 0){
+//			return rating/count;
+//		}else{
+//			return 0;
+//		}
+//		
+//	}
+	
+//	public List<Movie>topTopTenMovie() throws Exception{
+//		for (Movie m : movieIndex.values())
+//			averageRatings(m.id);
+//		
+//		List<Movie> movie = new ArrayList<>();
+//		
+//		Collections.sort(movie, new Comparator<Movie>(){
+//			public int compare(Movie movie, Movie other){
+//				return (int) (movie.rating - other.rating);
+//			}
+//		});
+//		
+//		if(movie.size()<10){
+//			return movie;
+//		}else{
+//		return movie.subList(0, 10);
+//		}
+//	}
+	
+
+//	@Override
+//	public List<Movie>getTopTenMovie(){
+//		Collection<Movie> allMovie = getMovies();
+//		List<Movie> movieList = new ArrayList<Movie>(allMovie);
+//		//Collections.sort(movieList);
+//		//Collections.reverse(movieList);
+//		List<Movie> sub = movieList.subList(0, 10 > movieList.size() ? movieList.size() : 10);
+//		return sub;	
+//	}
 	
 
 	@SuppressWarnings("unchecked")
@@ -182,6 +246,7 @@ public class MovieRecommenderAPI implements Recommender{
 			//addRatingList(rating.userId, rating.movieId, rating.rating);
 		}
 	}
+
 	
 	
 }

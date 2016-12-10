@@ -15,8 +15,6 @@ public class Rating {
 	public long movieId;
 	public double rating;
 	
-//	public List<Movie> movie = new ArrayList<Movie>();
-	
 	public long id; 
 	
 	public Rating(long userId, long movieId, double rating){
@@ -47,6 +45,10 @@ public class Rating {
 		return Objects.hashCode(this.userId, this.movieId, this.rating);
 	}
 	
+	public int compareTo(Rating that){
+		return Double.compare(this.getRating(), that.getRating());
+	}
+	
 	@Override
 	public boolean equals(final Object obj){
 		if(obj instanceof Rating){
@@ -57,5 +59,21 @@ public class Rating {
 		}else{
 			return false;
 		}
+	}
+	
+	public Long getMovieId(){
+		return movieId;
+	}
+	
+	public void setMovieId(Long movieId){
+		this.movieId = movieId;
+	}
+	
+	public double getRating(){
+		return rating;
+	}
+	
+	public void setRating(Long rating){
+		this.rating = rating;
 	}
 }
