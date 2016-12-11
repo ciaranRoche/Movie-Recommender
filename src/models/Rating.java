@@ -18,13 +18,6 @@ public class Rating {
 	public long id; 
 	
 	public Rating(long userId, long movieId, double rating){
-		
-		
-		if(userId < 0 || movieId < 0)
-			throw new IllegalArgumentException();
-		
-		this.id = counter ++;
-		
 		this.userId = userId;
 		this.movieId = movieId;
 		this.rating = rating;
@@ -33,8 +26,7 @@ public class Rating {
 	
 	@Override
 	public String toString(){
-		return toStringHelper(this).addValue(id)
-				                   .addValue(userId)
+		return toStringHelper(this).addValue(userId)
 				                   .addValue(movieId)
 				                   .addValue(rating)
 				                   .toString();
@@ -61,19 +53,27 @@ public class Rating {
 		}
 	}
 	
-	public Long getMovieId(){
-		return movieId;
-	}
-	
-	public void setMovieId(Long movieId){
-		this.movieId = movieId;
-	}
-	
 	public double getRating(){
 		return rating;
 	}
 	
 	public void setRating(Long rating){
 		this.rating = rating;
+	}
+	
+	public long getUserId(){
+		return userId;
+	}
+	
+	public void setUserId(long userId){
+		this.userId = userId;
+	}
+	
+	public long getMovieId(){
+		return movieId;
+	}
+	
+	public void setMovieId(long movieId){
+		this.movieId = movieId;
 	}
 }

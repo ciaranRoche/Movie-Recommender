@@ -23,6 +23,7 @@ public class MovieRecommenderAPI implements Recommender{
 	public Map<Long, Rating> ratingIndex = new HashMap<>();
 	
 	private Serializer serializer;
+	Rating rating;
 	
 	public MovieRecommenderAPI(){
 		
@@ -32,26 +33,25 @@ public class MovieRecommenderAPI implements Recommender{
 		this.serializer = serializer;
 	}
 	
-
+	@Override
 	public User addUser(String firstName, String lastName, String gender, String age, String occupation) {
 		User user = new User(firstName, lastName, gender, age, occupation);
+		user.id = userIndex.size() + 1l;
 		userIndex.put(user.id, user);
 		return user;
 	}
 	
-//
-//	public User addUser(Long id, String firstName, String lastName, String age, String gender, String occupation){
-//		User user = new User(id, firstName, lastName, age, gender, occupation);
-//		userIndex.put(user.id, user);
-//		return user;
-//	}
-//	
-	
+	@Override
 	public void removeUser(Long userID) throws Exception{
 		userIndex.remove(userID);
 	}
 	
+	@Override
+	public User getUserById(long userId){
+		return userIndex.get(userId);
+	}
 	
+	@Override
 	public User getUser(Long id){
 		for(User user : userIndex.values())
 			if(user.id == id)
@@ -59,38 +59,40 @@ public class MovieRecommenderAPI implements Recommender{
 	    return null;
 	  }
 	
-	
+	@Override
 	public Collection<User> getUsers(){
 		return userIndex.values();
 	}
 	
-
+	@Override
 	public Movie addMovie(String title, String year, String url) {
 		Movie movie = new Movie(title, year, url);
+		movie.id = movieIndex.size() + 1l;
 		movieIndex.put(movie.id, movie);
 		return movie;
 	}
 	
-	
+	@Override
 	public void removeMovie(Movie movie) throws Exception{
 		movieIndex.remove(movie.id);	
 	}
 	
-	
+	@Override
 	public Collection<Movie> getMovies(){
 		return movieIndex.values();
 	}
 
-
+	@Override
 	public Rating addRating(long userID, long movieID, double rating) {
 		Rating r = new Rating(userID, movieID, rating);
-		Movie movie = getMovie(movieID);
-		//movie.rating.add(r);
-		ratingIndex.put(movieID, r);
+		r.id = ratingIndex.size() + 1l;
+		//Movie movie = getMovie(movieID);
+		//movie.ratings.add(r);
+		ratingIndex.put(r.id, r);
 		return r;	
 	}
 
-	
+	@Override
 	public Movie getMovie(long movieID) {	
 		for(Movie movie : movieIndex.values())
 			if(movie.id == movieID)
@@ -99,68 +101,100 @@ public class MovieRecommenderAPI implements Recommender{
 		return null;	
 	}
 
-	
+	@Override
 	public double getUserRating(long userID) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 	
+//	@Override
+//	public List<Rating> getRating(Long userID){
+//		if(movieIndex.containsKey(userID)){
+//			return movieIndex.get(userID).getRatings();
+//		}else{
+//			return null;
+//		}
+//	}
 	
-	public Rating getRating(long movieID){
-		return ratingIndex.get(movieID);
+	@Override
+	public Rating getRating(long movieId){
+		return ratingIndex.get(movieId);
 	}
 
-
+	@Override
 	public double getUserRecommendations(long userID) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 	
-	
+	@Override
 	public Collection<Rating> getRatings(){
 		return ratingIndex.values();
 	}
 	
-	public double averageRating(){
-		List<Rating> ratedMovies = new ArrayList<Rating>();
-		double total = 0;
-		int count = 0;
-		for(Rating rating : ratingIndex.values()){
-			total += rating.rating;
-			count++;
-		}
-		if(count != 0){
-			return total/count;
-		}else{
-			return 0;
-		}
-			
-	}
-	
-	public List<Rating> ratings(){
-		ArrayList<Rating> ratingIndex = new ArrayList<Rating>();
-		for(User user : userIndex.values()){
-			for(Rating rating : user.getRatings()){
-				ratingIndex.add(rating);
-			}
-		}return ratingIndex;
-	}
-	
-	@Override
-	public List<Movie> getTopTenMovie(){
-		List<Movie> movies = new ArrayList<Movie>();
-		for(Movie movie : movieIndex.values()){
-			movies.add(movie);
-		}
-		Collections.sort(movies);
-		Collections.reverse(movies);
-		if(movies.size()<10){
-			return movies;
-		}else{
-			return movies.subList(0, 10);
-		}
-	}
-	
+//	public double averageRating(){
+//		List<Rating> ratedMovies = new ArrayList<Rating>();
+//		double total = 0;
+//		int count = 0;
+//		for(Rating rating : ratingIndex.values()){
+//			total += rating.rating;
+//			count++;
+//		}
+//		if(count != 0){
+//			return total/count;
+//		}else{
+//			return 0;
+//		}
+//			
+//	}
+//	
+//	@Override
+//	public String getTopTenMovie(){
+//		List<String> returnList = new ArrayList<String>();
+//		Long bestMovie = null;
+//		long bestRate = -1;
+//		Movie bestMovieItem = null;
+//		
+//		List<Rating>tempList = new ArrayList<Rating>();
+//		tempList.add((Rating) ratingIndex.values());
+//		
+//		for(Rating rating : tempList){
+//			if(rating.getRating()>bestRate){
+//				bestRate = (long) rating.getRating();
+//				bestMovie = rating.getMovieId();
+//				bestMovieItem = movieIndex.get(bestMovie);
+//				returnList.add(bestMovieItem.getTitle());
+//			}
+//		}
+//		Collections.sort(returnList);
+//		
+//		return ""+returnList.subList(0,	10);
+//	}
+//	
+//	public List<Rating> ratings(){
+//		ArrayList<Rating> ratingIndex = new ArrayList<Rating>();
+//		for(User user : userIndex.values()){
+//			for(Rating rating : user.getRatings()){
+//				ratingIndex.add(rating);
+//			}
+//		}return ratingIndex;
+//	}
+//	
+//	@Override
+//	public List<Movie> getTopTenMovie(){
+//		List<Movie> movies = new ArrayList<Movie>();
+//		for(Movie movie : movieIndex.values()){
+//			movies.add(movie);
+//		}
+//		Collections.sort(movies);
+//		Collections.reverse(movies);
+//		if(movies.size()<10){
+//			return movies;
+//		}else{
+//			return movies.subList(0, 10);
+//		}
+//	}
+//	
 	
 	
 //	public double averageRatings(long movieID) throws Exception{
@@ -199,19 +233,19 @@ public class MovieRecommenderAPI implements Recommender{
 //		return movie.subList(0, 10);
 //		}
 //	}
+//	
+//
+	@Override
+	public List<Movie>getTopTenMovie(){
+		Collection<Movie> allMovie = getMovies();
+		List<Movie> movieList = new ArrayList<Movie>(allMovie);
+		//Collections.sort(movieList);
+		//Collections.reverse(movieList);
+		List<Movie> sub = movieList.subList(0, 10 > movieList.size() ? movieList.size() : 10);
+		return sub;	
+	}
 	
-
-//	@Override
-//	public List<Movie>getTopTenMovie(){
-//		Collection<Movie> allMovie = getMovies();
-//		List<Movie> movieList = new ArrayList<Movie>(allMovie);
-//		//Collections.sort(movieList);
-//		//Collections.reverse(movieList);
-//		List<Movie> sub = movieList.subList(0, 10 > movieList.size() ? movieList.size() : 10);
-//		return sub;	
-//	}
-	
-
+	@Override
 	@SuppressWarnings("unchecked")
 	public void load() throws Exception {
 		serializer.read();
@@ -220,7 +254,7 @@ public class MovieRecommenderAPI implements Recommender{
 		userIndex		= (Map<Long, User>)		serializer.pop();	
 	}
 
-	
+	@Override
 	public void write() throws Exception {
 		serializer.push(userIndex);
 		serializer.push(movieIndex);
@@ -242,11 +276,18 @@ public class MovieRecommenderAPI implements Recommender{
 		}
 		List<Rating> ratings = loader.loadRatings("././data/ratings5.dat");
 		for (Rating rating : ratings){
+//			for(Map.Entry<Long, Movie> mRatings : movieIndex.entrySet()){
+//				if(mRatings.getKey().equals(rating.getMovieId())){
+//					mRatings.getValue().addRating(rating);
+//				}
+//			}
+//			for(Map.Entry<Long, User> uRatings : userIndex.entrySet()){
+//				if(uRatings.getKey().equals(rating.getUserId())){
+//					uRatings.getValue().addRating(rating);
+//				}
+//			}
 			addRating(rating.userId, rating.movieId, rating.rating);
 			//addRatingList(rating.userId, rating.movieId, rating.rating);
 		}
-	}
-
-	
-	
+	}	
 }

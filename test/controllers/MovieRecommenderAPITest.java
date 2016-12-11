@@ -72,9 +72,9 @@ public class MovieRecommenderAPITest {
 	
 	@Test
 	public void testRating(){
-//		assertEquals(ratings.length, moviAPI.getRatings().size());
-//		moviAPI.addRating(0, 0, 0.0);
-//		assertEquals(ratings.length+1, moviAPI.getRatings().size());
+		assertEquals(ratings.length, moviAPI.getRatings().size());
+		moviAPI.addRating(0, 0, 0.0);
+		assertEquals(ratings.length + 1, moviAPI.getRatings().size());
 	}
 	
 	@Test
@@ -82,8 +82,8 @@ public class MovieRecommenderAPITest {
 		assertEquals(users.length, moviAPI.getUsers().size());
 		User test =moviAPI.addUser("TEST", "TEST", "TEST", "22", "TEST");
 		assertEquals(users.length+1, moviAPI.getUsers().size());
-		//moviAPI.removeUser(test);
-		//assertEquals(users.length, moviAPI.getUsers().size());
+		moviAPI.removeUser(4l);
+		assertEquals(users.length, moviAPI.getUsers().size());
 	}
 	
 	@Test
@@ -113,13 +113,13 @@ public class MovieRecommenderAPITest {
 	public void testAddRating(){
 		assertEquals(ratings.length, moviAPI.getRatings().size());
 		moviAPI.addRating(1, 1, 1.0);
-		assertEquals(ratings.length, moviAPI.getRatings().size());
+		assertEquals(ratings.length +1, moviAPI.getRatings().size());
 	}
 	
 	@Test
 	public void testGetRating(){
-		Rating test = moviAPI.getRating(0);
-		Rating check = moviAPI.getRating(1);
+		Rating test = (Rating) moviAPI.getRating(0l);
+		Rating check = (Rating) moviAPI.getRating(1l);
 		assertNotEquals(test, check);
 		assertEquals(test, test);
 		assertEquals(check, check);

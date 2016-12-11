@@ -3,7 +3,7 @@ package controllers;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
-
+import java.util.List;
 
 import asg.cliche.Command;
 import asg.cliche.Param;
@@ -21,7 +21,6 @@ public class Main {
 	private User user;
 	private Movie movie;
 	private Rating rating;
-	
 	
 	public Main() throws Exception{	
 		File datastore = new File("dataStore.xml");
@@ -130,11 +129,25 @@ public class Main {
 	}
 	
 	
-	@Command(description="Get a Rating")
-	public String getRating(@Param(name="movieID") long movieID){
-		rating = moviAPI.getRating(movieID);
+	@Command(description="Get a Rating based on id")
+	public String getRating(@Param(name="id") long id){
+		rating = moviAPI.getRating(id);
 		return rating.toString();
 	}
+	
+//	@Command(description="Get a Movie Rating")
+//	public void getRating(@Param(name="movieID") long movieID){
+//		List<Rating> ratings = moviAPI.getRating(movieID);
+//		if(ratings==null){
+//			System.out.println("No matching movie ID. FATAL ERROR!");
+//		}else if(ratings.size()==0){
+//			System.out.println("No one has rated this yet, be the first!!!!");
+//		}else{
+//			for(Rating r : ratings){
+//				System.out.println(r.toString());
+//			}
+//		}
+//	}
 	
 	
 	@Command(description="Get top ten movies")
@@ -149,7 +162,7 @@ public class Main {
 		}
 	}
 	
-	
+
 	@Command(description="Get all ratings")
 	public void getRatings(){
 		Collection<Rating> ratings = moviAPI.getRatings();

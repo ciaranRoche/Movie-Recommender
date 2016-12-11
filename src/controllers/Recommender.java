@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.Collection;
 import java.util.List;
 
 import models.Movie;
@@ -29,4 +30,18 @@ public interface Recommender {
 	public void write() throws Exception;
 	
 	public void prime() throws Exception;
+
+	User getUserById(long userId);
+
+	User getUser(Long id);
+
+	Collection<User> getUsers();
+
+	void removeMovie(Movie movie) throws Exception;
+
+	Collection<Rating> getRatings();
+
+	Collection<Movie> getMovies();
+
+	Rating getRating(long movieId);
 }
