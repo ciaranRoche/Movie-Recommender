@@ -6,6 +6,13 @@ import java.util.List;
 
 import com.google.common.base.Objects;
 
+/**
+ * User class that is a representaion of what a user type object is.
+ * @author ciaran
+ * @version asparagus
+ * @data 11/12/2016
+ *
+ */
 public class User {
 	
 	static Long counter= 0l;
@@ -105,6 +112,11 @@ public class User {
 	public List<Rating> getRatings(){
 		return ratings;
 	}
+	
+	/**
+	 * Setters and getters
+	 * @param ratings
+	 */
 	
 	public void setRatings(List<Rating> ratings){
 		this.ratings = ratings;

@@ -1,6 +1,7 @@
 package utils;
 
 import java.io.File;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,16 @@ import models.User;
 import models.Movie;
 
 import models.Rating;
+
+/**
+ * This is a data input method. This class parses in the dat file format information
+ * int the methods temporary array list. seperating the data with a | . This data is then 
+ * split and parsed.
+ * @author ciaran
+ * @version asparagus
+ * @data 11/12/2016
+ *
+ */
 public class DataInput {
 	
 	

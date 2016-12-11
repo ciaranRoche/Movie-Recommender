@@ -15,9 +15,24 @@ import utils.Serializer;
 
 import models.Rating;
 
-
+/**
+ * This is an API(java application program interface) class.
+ * This class performs the majority of actions that can be chosen in the CLI.
+ * 
+ * @author ciaran
+ * @version Asparagus
+ * @date 11/12/2016
+ *
+ */
 public class MovieRecommenderAPI implements Recommender{
 
+	/**
+	 * There are 3 hashmaps below;
+	 * 
+	 * 1) a user id mapped to User type object
+	 * 2) a movie id mapped to a Movie type object
+	 * 3) a rating id mapped to a Rating type object
+	 */
 	public Map<Long, User> userIndex = new HashMap<>();
 	public Map<Long, Movie> movieIndex = new HashMap<>();
 	public Map<Long, Rating> ratingIndex = new HashMap<>();
@@ -25,13 +40,21 @@ public class MovieRecommenderAPI implements Recommender{
 	private Serializer serializer;
 	Rating rating;
 	
+	/**
+	 * Blank constructor to over come bug
+	 */
 	public MovieRecommenderAPI(){
 		
 	}
 	
+	/**
+	 *Constructor that instantiates serializer.
+	 * @param serializer
+	 */
 	public MovieRecommenderAPI(Serializer serializer){
 		this.serializer = serializer;
 	}
+	
 	
 	@Override
 	public User addUser(String firstName, String lastName, String gender, String age, String occupation) {
@@ -58,6 +81,18 @@ public class MovieRecommenderAPI implements Recommender{
 				return user;
 	    return null;
 	  }
+	/**
+	 * Extra method thrown in to give the max number of users
+	 * @return Largest number of users in the userIndex
+	 */
+	public Long getMaxUserId(){
+		Long maxId = 0l;
+		for (Long id : userIndex.keySet()){
+			if (id>maxId){
+				maxId = id;
+			}
+		}return maxId;
+	}
 	
 	@Override
 	public Collection<User> getUsers(){
@@ -90,6 +125,18 @@ public class MovieRecommenderAPI implements Recommender{
 		//movie.ratings.add(r);
 		ratingIndex.put(r.id, r);
 		return r;	
+	}
+	/**
+	 * Another method added in practice for keySet
+	 * @return Long of the max number of movies in movieIndex
+	 */
+	public Long getMaxMovieId(){
+		Long maxId = 0l;
+		for(Long id : movieIndex.keySet()){
+			if(id>maxId){
+				maxId=id;
+			}
+		}return maxId;
 	}
 
 	@Override
@@ -263,6 +310,11 @@ public class MovieRecommenderAPI implements Recommender{
 	}
 	
 
+	/**
+	 * Prime method is a method that takes in the parased data from dataInput
+	 * It populates the hash maps that have the object type as a value
+	 * This is done for user, movie and rating parsed in objects.
+	 */
 	@Override
 	public void prime() throws Exception {
 		DataInput loader = new DataInput();

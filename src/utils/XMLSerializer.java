@@ -10,7 +10,14 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-
+/**
+ * Serializes all the data from the data input file
+ * Stores data in xml format.
+ * @author ciaran
+ * @version asparagus
+ * @date 11/12/2016
+ *
+ */
 public class XMLSerializer implements Serializer {
 	
 	private Stack stack = new Stack();

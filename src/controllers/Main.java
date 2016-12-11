@@ -15,6 +15,19 @@ import utils.XMLSerializer;
 import models.Movie;
 import models.Rating;
 
+
+/**
+ * This class provides the user with a command line interface
+ * using cliche command line shell.
+ * This class allows the user to choose options that act on the hash maps
+ * and exitst in the movieRecommendedAPI class. Returning results to the user.
+ * 
+ * 
+ * @author ciaran
+ * @version Asparagus
+ * @date 11/12/2016
+ *
+ */
 public class Main {
 	
 	public MovieRecommenderAPI moviAPI;

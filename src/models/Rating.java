@@ -7,6 +7,13 @@ import java.util.List;
 
 import com.google.common.base.Objects;
 
+/**
+ * Ratings class that is a representation of what a rating object is.
+ * @author ciaran
+ * @version asparagus
+ * @date 11/12/2016
+ *
+ */
 public class Rating {
 	
 	static long counter = 0l;
@@ -17,12 +24,36 @@ public class Rating {
 	
 	public long id; 
 	
+	/**
+	 * One of two constructors
+	 * Used in Cliche Shell.
+	 * @param userId
+	 * @param movieId
+	 * @param rating
+	 */
 	public Rating(long userId, long movieId, double rating){
 		this.userId = userId;
 		this.movieId = movieId;
 		this.rating = rating;
 	}
 	
+	/**
+	 * One of two constructors,
+	 * Used when data is parsed in dataInput
+	 * @param id
+	 * @param userId
+	 * @param movieId
+	 * @param rating
+	 */
+	public Rating(long id, long userId, long movieId, double rating){
+		this.id = id;
+		if(id >= counter){
+			counter = id + 1;
+		}
+		this.userId = userId;
+		this.movieId = movieId;
+		this.rating = rating;
+	}
 	
 	@Override
 	public String toString(){
@@ -52,6 +83,11 @@ public class Rating {
 			return false;
 		}
 	}
+	
+	/**
+	 * Setters and Getters
+	 * @return
+	 */
 	
 	public double getRating(){
 		return rating;
