@@ -6,7 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
-
+/**
+ * This is a Junit test class which tests the movie class
+ * @author ciaran
+ * @version asparagus
+ * @date 11/12/2016
+ *
+ */
 public class MovieTest {
 
 	public List<Rating> ratings = new ArrayList<Rating>();

@@ -1,5 +1,6 @@
 package controllers;
 
+
 import static org.junit.Assert.*;
 
 import java.io.File;
@@ -17,6 +18,13 @@ import static models.Fixtures.users;
 import static models.Fixtures.movies;
 import static models.Fixtures.ratings;
 
+/**
+ * This is a Junit test class that test persistence in the app.
+ * @author ciaran
+ * @version asparagus
+ * @date 11/12/2016
+ *
+ */
 public class PersistenceTest {
 
 	MovieRecommenderAPI moviAPI;

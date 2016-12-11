@@ -1,5 +1,12 @@
 package models;
 
+/**
+ * This is a fixtures class to be used in test classes 
+ * @author ciaran
+ * @version asparagus
+ * @date 11/12/2016
+ *
+ */
 public class Fixtures {
 	
 	public static User[] users = {

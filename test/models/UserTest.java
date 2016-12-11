@@ -9,6 +9,14 @@ import org.junit.Test;
 
 import static models.Fixtures.users;
 
+
+/**
+ * This is a Junit test class that tests the user class
+ * @author ciaran
+ * @version asparagus
+ * @date 11/12/2016
+ *
+ */
 public class UserTest {
 
 	User Joe = new User("Joe", "Bloggs", "Male", "21", "Programmer");

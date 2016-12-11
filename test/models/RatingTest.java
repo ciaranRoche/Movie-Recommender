@@ -4,6 +4,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+ * This is a Junit test class that tests the rating class
+ * @author ciaran
+ * @version asparagus
+ * @date 11/12/2016
+ *
+ */
 public class RatingTest {
 
 		Rating rat0 = new Rating(0, 0, 0);

@@ -14,7 +14,13 @@ import models.Rating;
 import static models.Fixtures.users;
 import static models.Fixtures.movies;
 import static models.Fixtures.ratings;
-
+/**
+ * This is a Junit test class for methods in the MovieRecommenderAPI
+ * @author ciaran
+ * @version asparagus
+ * @date 11/12/2016
+ *
+ */
 public class MovieRecommenderAPITest {
 
 	MovieRecommenderAPI moviAPI;
